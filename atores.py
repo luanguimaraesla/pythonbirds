@@ -37,7 +37,8 @@ class Ator():
         :param tempo: o tempo do jogo
         :return: posição x, y do ator
         """
-        return 1, 1
+        #Lógica não compreendida, há a necessidade de mais informações além do tempo para se verificar a posição em 4 dimensões
+        return self.x, self.y
 
     def colidir(self, outro_ator, intervalo=1):
         """
@@ -46,17 +47,22 @@ class Ator():
         Para colisão, é considerado um quadrado, com lado igual ao parâmetro intervalo, em volta do ponto onde se
         encontra o ator. Se os atores estiverem dentro desse mesmo quadrado, seus status devem ser alterados para
         destruido, seus caracteres para destruido também.
-
         :param outro_ator: Ator a ser considerado na colisão
         :param intervalo: Intervalo a ser considerado
-        :return:
-        """
-        pass
+        :return:"""
+
+        if abs(self.x - outro_ator.x)<= intervalo and abs(self.y - outro_ator.y) <= intervalo and\
+                self.caracter() != self._caracter_destruido and\
+                outro_ator.caracter() != outro_ator._caracter_destruido:
+            self.status = DESTRUIDO
+            outro_ator.status = DESTRUIDO
+
 
 
 
 class Obstaculo(Ator):
-    pass
+    #correção de caracter
+    _caracter_ativo = 'O'
 
 
 class Porco(Ator):
