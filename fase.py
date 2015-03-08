@@ -22,10 +22,6 @@ class Ponto():
 
     def __repr__(self, *args, **kwargs):
         return "Ponto(%s,%s,'%s')" % (self.x, self.y, self.caracter)
-    """
-    def __str__(self):
-        return (str(self.x) + ',' + str(self.y))
-    """
 
 class Fase():
     def __init__(self, intervalo_de_colisao=1):
@@ -106,8 +102,6 @@ class Fase():
                 cada_passaro.lancar(angulo, tempo)
                 break
 
-
-
     def calcular_pontos(self, tempo):
         """
         Lógica que retorna os pontos a serem exibidos na tela.
@@ -117,8 +111,6 @@ class Fase():
         :param tempo: tempo para o qual devem ser calculados os pontos
         :return: objeto do tipo Ponto
         """
-
-
 
         pontos = []
 
